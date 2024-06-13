@@ -15,18 +15,23 @@ module.exports = {
                 test: /\.css$/, //확장자가 css인 파일을 선택하는 정규표현식
                 use: [
                 'style-loader',
-                'css-loader'
+                {
+                    loader: 'css-loader',
+                    options: {
+                        esModule: false, // url()을 올바르게 처리하기 위한 설정 (파일명이 바뀌지 않음.)
+                    },
+                }
                 ],
             },
             {
-                test: /\.(ico|png|jpg|jpeg|gif|svg)?$/,
+                test: /\.(ico|png|jpg|jpeg|gif|svg)$/,
                 use: [{
-                    loader: 'file-loader',
+                    loader:'file-loader',
                     options: {
                         outputPath: 'images',
                         name: '[name].[ext]'
                     }
-                }]
+                }],
             },
             {
                 test: /\.(woff|woff2|ttf|eot|otf)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
@@ -34,7 +39,7 @@ module.exports = {
                     loader: 'file-loader',
                     options: {
                         outputPath: 'fonts',
-                        name: '[name].[ext]?[hash]'
+                        name: '[name].[ext]'
                     }
                 }]
             },
@@ -52,7 +57,7 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, "dist"),
-        filename : "index_bundle.js"
+        filename : "index_bundle.js",
     },
     plugins: [
         new HtmlWebpackPlugin({  

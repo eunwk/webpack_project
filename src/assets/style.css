@@ -1,35 +1,40 @@
-/* @font-face {
+@font-face {
 	font-family: 'Noto Sans KR';
 	src : local("NotoSansKR-Regular"),
-	url("/static/fonts/noto-sans-kr-v27-korean-regular.woff2") format('font-woff2'),
-	url("/static/fonts/noto-sans-kr-v27-korean-regular.woff") format('font-woff');
+	url("/public/static/fonts/noto-sans-kr-v27-korean-regular.woff2") format('woff2');
 	font-weight: 400;
 	font-style: normal ;
 }
 
-  
-
-  @font-face {
+@font-face {
 	font-family: 'Noto Sans KR';
-	src : local("NotoSansKR-Medium"),
-	url("/static/fonts/noto-sans-kr-v27-korean-500.woff2") format('font-woff2'),
-	url("/static/fonts/noto-sans-kr-v27-korean-500.woff") format('font-woff');
+	src : local("NotoSansKR-Regular"),
+	url("/public/static/fonts/noto-sans-kr-v27-korean-500.woff2") format('woff2');
 	font-weight: 500;
-	font-style: normal;
-  }
-  
+	font-style: normal ;
+}
 
-  @font-face {
+@font-face {
 	font-family: 'Noto Sans KR';
-	src : local("NotoSansKR-Bold"),
-	url("/static/fonts/noto-sans-kr-v27-korean-700.woff2") format('font-woff2'),
-	url("/static/fonts/noto-sans-kr-v27-korean-700.woff") format('font-woff');
+	src : local("NotoSansKR-Regular"),
+	url("/public/static/fonts/noto-sans-kr-v27-korean-700.woff2") format('woff2');
 	font-weight: 700;
-	font-style: normal;
-  } */
+	font-style: normal ;
+}
+
+@font-face {
+	font-family: 'Roboto';
+	src : 
+	url("./Roboto.woff2") format('woff2');
+	font-style: normal ;
+}
+
+
 
 body {
-	font-family: "Noto Sans KR", sans-serif;
+    background: #f1f1f1;
+    font-weight: 400;
+    font-family: "맑은 고딕", sans-serif
 }
 
 
@@ -38,6 +43,38 @@ body {
 }
 
 
-h1, h2 {
+h1 {
+   font-size: 20px;
+   font-weight: 400;
+   /* src 내 이미지 사용 */
+   background: url("./bg-dot.png") no-repeat right center ;
+   background-size: 20px;
+}
+
+h2 {
     font-size: 20px;
+    font-weight: 400;
+    /* public 폴더 내 이미지 사용 */
+    background: url("/public/static/images/arrow-alt-down.png") no-repeat right center ;
+    background-size: 20px;
+ }
+
+.font-1 {
+    font-family: "Noto Sans KR";
+    font-weight: 400;
+}
+
+.font-2 {
+    font-family: "Noto Sans KR";
+    font-weight: 500;
+}
+
+.font-3 {
+    font-family: "Noto Sans KR";
+    font-weight: 700;
+}
+
+.font-4 {
+    font-family: "Roboto";
+    font-weight: 700;
 }
