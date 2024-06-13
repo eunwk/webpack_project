@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require("copy-webpack-plugin");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
@@ -14,7 +15,7 @@ module.exports = {
             {
                 test: /\.css$/, //확장자가 css인 파일을 선택하는 정규표현식
                 use: [
-                'style-loader',
+                MiniCssExtractPlugin.loader,
                 {
                     loader: 'css-loader',
                     options: {
@@ -78,6 +79,9 @@ module.exports = {
                 },
               },
             ],
+        }),
+        new MiniCssExtractPlugin({
+            filename: 'styles.css' // 루트 폴더 기준으로 빌드 되는 경로 localhost/css/styles.css
         }),
         new CleanWebpackPlugin({
             cleanAfterEveryBuildPatterns: ['dist']
